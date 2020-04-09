@@ -1,0 +1,75 @@
+/* Changing the background color and height of the nav bar */
+nav{ 
+	background-color: #FD5F00;
+	height: 80px;
+}
+
+/* Setting the height, width and margin of the unordered list in the nav bar */
+nav ul{
+	height: 50px;
+	width: 750px;
+	margin: 0 auto;
+}
+
+/* Editing the unordered list in the nav bar. */
+nav ul li{
+	list-style-type: none;
+	width: 150px;
+	float: left;
+	text-align: centre;
+}
+
+li a{
+	text-decoration: none;
+	color: white;
+	line-height: 80px;
+	display: block;
+}
+
+/* Changing the color of the list when the mouse hovers over it */
+li a:hover{
+	background-color: #828282;
+	color: white;
+}
+
+#observations{
+	margin-left: 15px;
+}
+
+#observationsp{
+	margin-left: 35px;
+	margin-right: 50px;
+}
+
+#insights{
+	margin-left: 15px;
+}
+
+#insightsp{
+	margin-left: 35px;
+	margin-right: 50px;
+}
+
+#analysis{
+	margin-left: 15px;
+}
+
+#analysisp{
+	margin-left: 35px;
+	margin-right: 50px;
+}
+
+#reflections{
+	margin-left: 15px;
+}
+
+#reflectionsp{
+	margin-left: 35px;
+	margin-right: 50px;
+}
+
+/* Editing the element with the id footer. Edited the background color of the footer. */
+#footer{
+	background-color: #FD5F00;
+
+}

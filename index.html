@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+	<!--Giving the page a title and linking a css stylesheet --> 
+		<title>Learning Journal</title>
+		<link rel="stylesheet" type = "text/css" href="css/index.css">
+	</head>
+	
+	<body>
+		<nav>	
+		<!-- Unordered list -->
+		<ul>
+		<!--Creating links to other pages -->	
+		  <center><li><a href="#observations">Observations</a></li></center>
+		  <center><li><a href="#insights">Insights</a></li></center>
+		  <center><li><a href="#analysis">Analysis</a></li></center>
+		  <center><li><a href="#reflections">Reflections</a></li></center>
+		</ul>
+	</nav>
+	
+	<br>
+	<br>
+	<div id="scroller" style="width: 550px; height: 200px; margin: 0 auto;">
+		<div class="innerScrollArea">
+			<ul>
+				<!-- Define photos here -->
+				<li><img src="images/image1.jpg" width="300" height="200" /></li>
+				<li><img src="images/image2.jpg" width="300" height="200" /></li>
+				<li><img src="images/image3.jpg" width="300" height="200" /></li>
+				<li><img src="images/image4.jpg" width="268" height="200" /></li>
+			</ul>
+		</div>
+	</div>
+
+	
+<style type="text/css">
+    #scroller {
+        position: relative;
+    }
+    #scroller .innerScrollArea {
+        overflow: hidden;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+    }
+    #scroller ul {
+        padding: 0;
+        margin: 0;
+        position: relative;
+    }
+    #scroller li {
+        padding: 0;
+        margin: 0;
+        list-style-type: none;
+        position: absolute;
+    }
+</style>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<script type="text/javascript">
+    $(function(){
+        var scroller = $('#scroller div.innerScrollArea');
+        var scrollerContent = scroller.children('ul');
+        scrollerContent.children().clone().appendTo(scrollerContent);
+        var curX = 0;
+        scrollerContent.children().each(function(){
+            var $this = $(this);
+            $this.css('left', curX);
+            curX += $this.outerWidth(true);
+        });
+        var fullW = curX / 2;
+        var viewportW = scroller.width();
+
+        // Scrolling speed management
+        var controller = {curSpeed:0, fullSpeed:2};
+        var $controller = $(controller);
+        var tweenToNewSpeed = function(newSpeed, duration)
+        {
+            if (duration === undefined)
+                duration = 600;
+            $controller.stop(true).animate({curSpeed:newSpeed}, duration);
+        };
+
+        // Pause on hover
+        scroller.hover(function(){
+            tweenToNewSpeed(0);
+        }, function(){
+            tweenToNewSpeed(controller.fullSpeed);
+        });
+
+        // Scrolling management; start the automatical scrolling
+        var doScroll = function()
+        {
+            var curX = scroller.scrollLeft();
+            var newX = curX + controller.curSpeed;
+            if (newX > fullW*2 - viewportW)
+                newX -= fullW;
+            scroller.scrollLeft(newX);
+        };
+        setInterval(doScroll, 20);
+        tweenToNewSpeed(controller.fullSpeed);
+    });
+</script>
+
+	
+	<h2 id="observations">Observations</h2>
+	<p id="observationsp">
+	Whilst doing this project I made a few observations. Number one being groupwork is hard. Keeping in contact with the group and making sure everyone 
+	is pulling their weight proved to be difficult and tedious. However, a group members lack of contribution should not impact the groups 
+	ability to deliver the project on time and to a high standard therefore, contingency plans are needed! Keeping a timeline of work done and 
+	who has done it is another important factor in working as a group, my group did this by sharing a google doc.
+	<br>
+	<br>
+	Another problem we encountered while working as a group was how to share code. We solved this by using GitHub but that alone had to be 
+	navigated first to ensure code did not go missing and was easily accessible. It proved to be a great asset as it allowed us to leave comments
+	with every new commit and gives each new commit a “branch”, so every stage of the project is backed up.
+	<br>
+	<br>
+	Finally, I had to ensure that I was using all my learning efficiently and applying as much of the lecture material to the project as 
+	possible. This meant I had to review my notes and decide how to complete each task in the brief. 
+	</p>
+	
+	<br>
+	<br>
+	
+	<h2 id="insights">Insights</h2>
+	<p id="insightsp">
+	While doing this project I had a lot of difficulty with group members not doing their share of the work and only two out of four members contributed. I had to set up the access database and I looked after the staff side of the project. However, I had to continually review and adjust things in the other group members work. 
+	<br>
+	<br>
+	I developed a login system for both the staff and customer side. It was my one of my favourite parts of the project as I implemented a lot of my learning and was confident that I did it efficiently. I populated an array with the login information for staff and customer. For example, on the staff side, the username and password for one staff account was “cdoran” and so this was an element in the array. I then used an if statement to check if the text in the textboxes were equal. If they were then I called a sub procedure to check if they were elements in the array. If so then the next form would open, if not then a “do until” loop kept track of the users failed attempts and if they had three failed attempts the program would close. 
+	<br>
+	<br>
+	Another part of the project that I really enjoyed was setting up and using the access database. I did run into a few difficulties but by reviewing lecture notes and conduction individual research I managed to overcome them.
+	<br>
+	<br>
+	Other things that I was responsible for was making sure that my code and the other group member’s code worked together, deciding on a logo and background, creating a user manual, adding menustrips to each form to give the user options to logout, access the user manual and see information about the company. I added a splash screen, made a query for staff to search orders by order id, a report function and a nav tool to add and remove staff accounts.
+
+	</p>
+	
+	
+	<br>
+	<br>
+	
+	<h2 id="analysis">Analysis</h2>
+	<p id="analysisp">
+	I enjoyed this project as it gave me a chance to put my learning into practice and to understand it better as I learn best through practical work. It gave me an opportunity to think independently about problems and to use my problem-solving skills to navigate them. It gave me a chance to get an insight into the professional world through group work as when I move into the industry it is something, I will have to deal with on a day to day basis. 
+	<br>
+	<br>
+	Through conducting independent research, I have become more aware of various resources available to me and how many different ways a problem can be solved. 
+
+	</p>
+	
+	<br>
+	<br>
+	
+	<h2 id="reflections">Reflections</h2>
+	<p id="reflectionsp">
+	By reflecting on my experience with the project, I have learned various things. I am more confident in my abilities as a programmer and I am excited to learn more and continue down the programming route. I also discovered that I am interested in project management as I more or less assumed the role of project manager. I enjoy groupwork but I also enjoy working independently and they are two things I am interested in getting more experience in.
+	<br>
+	<br>
+	In the future I would make more of an effort to encourage group members to contribute. I am an ambitious person and so keeping a high standard of work is important to me and it is something that I aspire to maintain throughout my college experience and career. I have learned that continuing to follow up on topics discussed in lectures and to practice programming regularly is important to achieve a better understanding of the topics and become more confident in my abilities.
+
+	</p>
+	</body>
+	
+		<!-- Adding a footer with the business name and copyright symbol-->
+	<footer id="footer">
+	&copy; Copyright 2020 IS1111 Learning Journal C.D
+	</footer>
+	
+</html>
